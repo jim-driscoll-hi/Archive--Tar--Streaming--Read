@@ -1,0 +1,5 @@
+Archive::Tar::Streaming::Read
+
+A module for support streaming input of a tar file (eg. GNU tar) and doing
+something with it. For more information, please see the POD documentation
+in the module itself.
