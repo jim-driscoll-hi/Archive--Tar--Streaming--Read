@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use IO::Handle;
 
-# Copyright (c) 2011, Heart Internet Ltd
+# Copyright (c) 2012, Heart Internet Ltd
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -323,7 +323,7 @@ sub read_header {
   $header_parsed{mode} |= $type_to_mode_prefix{ $header_parsed{type} };
 
   my $header_data_for_checksum = $header_data;
-  $header_data_for_checksum=~s/^(.{148}).{8}/$1        /; # Eight spaces.
+  $header_data_for_checksum=~s/^(.{148}).{8}/$1        /s; # Eight spaces.
 
   # Check the checksum.
   my $expected_checksum = 0;
