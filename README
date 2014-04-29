@@ -3,3 +3,10 @@ Archive::Tar::Streaming::Read
 A module for support streaming input of a tar file (eg. GNU tar) and doing
 something with it. For more information, please see the POD documentation
 in the module itself.
+
+BUILDING A TARBALL
+
+To make a tar of this module do:
+
+git archive --format tar -o Archive-Tar-Streaming-0.1.0.tar \
+  --prefix Archive-Tar-Streaming-0.1.0/ HEAD
