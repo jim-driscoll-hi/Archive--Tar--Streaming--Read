@@ -400,9 +400,16 @@ sub read_header {
 
     # GNU tar long filename
 
+    # This is a C string - see "tar" source, src/create.c, write_gnu_long_link()
     my $actual_filename = $self->read_data();
+    $actual_filename=~s/\0$//; # Strip trailling NUL which C strings use.
+
     %header_parsed = $self->read_header();
-    $header_parsed{path} = $actual_filename;
+    if($header_literal{type} eq "K") {
+      $header_parsed{linkpath} = $actual_filename;
+    } elsif($header_literal{type} eq "L") {
+      $header_parsed{path} = $actual_filename;
+    }
 
   } elsif($header_literal{type}=~/[S]/) {
 
