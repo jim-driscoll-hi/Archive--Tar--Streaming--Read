@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use IO::Handle;
 
+use version; our $VERSION = version->declare("v0.1.0");
+
 # Copyright (c) 2012, Heart Internet Ltd
 # All rights reserved.
 # 
